@@ -10,13 +10,28 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "apigator" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('apigator.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from apigator!');
+	});
+
+	disposable = vscode.commands.registerCommand('apigator.generateTest', () => {
+		vscode.window.showInformationMessage('Generate Test!');
+	});
+
+	disposable = vscode.commands.registerCommand('apigator.generateConsoleApplication', () => {
+		vscode.window.showInformationMessage('Generate Console Application!');
+	});
+
+	disposable = vscode.commands.registerCommand('apigator.generateAtCommandHandler', () => {
+		vscode.window.showInformationMessage('Generate AT Command Handler!');
+	});
+
+	disposable = vscode.commands.registerCommand('apigator.generateStandardApi', () => {
+		vscode.window.showInformationMessage('Generate Standard API!');
+	});
+
+	disposable = vscode.commands.registerCommand('apigator.generateRestApi', () => {
+		vscode.window.showInformationMessage('Generate REST API!');
 	});
 
 	context.subscriptions.push(disposable);

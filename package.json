@@ -14,8 +14,24 @@
   "contributes": {
     "commands": [
       {
-        "command": "apigator.helloWorld",
-        "title": "Hello World"
+        "command": "apigator.generateConsoleApplication",
+        "title": "API: Generate Console Application"
+      },
+      {
+        "command": "apigator.generateAtCommandHandler",
+        "title": "API: Generate AT Command Handler"
+      },
+      {
+        "command": "apigator.generateRestApi",
+        "title": "API: Generate REST API"
+      },
+      {
+        "command": "apigator.generateStandardApi",
+        "title": "API: Generate Standard C API"
+      },
+      {
+        "command": "apigator.generateTest",
+        "title": "API: Generate Test"
       }
     ]
   },
