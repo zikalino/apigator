@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateConsoleApplication', () => {
-		vscode.window.showInformationMessage('Generate Console Application!');
+		generateConsoleApplication();
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateAtCommandHandler', () => {
@@ -39,3 +39,48 @@ export function activate(context: vscode.ExtensionContext) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
+
+async function generateConsoleApplication() {
+	const result = await vscode.window.showQuickPick(["ESP IDF Console",
+	                                                  "NuttX Console",
+													  "Zephyr Console",
+													  "Arduino Console"]);
+
+	vscode.window.showInformationMessage('Selected ' + result);
+}
+
+async function generateStandardApi() {
+	const result = await vscode.window.showQuickPick(["ESP IDF API",
+	                                                  "NuttX API",
+													  "Zephyr API",
+													  "Arduino API"]);
+
+	vscode.window.showInformationMessage('Selected ' + result);
+}
+
+async function generateRestApi() {
+	const result = await vscode.window.showQuickPick(["REST API for ESP IDF HTTP/HTTPS",
+	                                                  "NuttX REST API",
+													  "Zephyr REST API",
+													  "Arduino REST API"]);
+
+	vscode.window.showInformationMessage('Selected ' + result);
+}
+
+async function generateAtCommandHandler() {
+	const result = await vscode.window.showQuickPick(["ESP IDF AT Command Handler",
+	                                                  "NuttX AT Command Handler",
+													  "Zephyr AT Command Handler",
+													  "Arduino AT Command Handler"]);
+
+	vscode.window.showInformationMessage('Selected ' + result);
+}
+
+async function generateTest() {
+	const result = await vscode.window.showQuickPick(["PyTest - ",
+	                                                  "NuttX AT Command Handler",
+													  "Zephyr AT Command Handler",
+													  "Arduino AT Command Handler"]);
+
+	vscode.window.showInformationMessage('Selected ' + result);
+}
