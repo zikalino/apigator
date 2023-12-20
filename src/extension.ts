@@ -10,12 +10,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "apigator" is now active!');
 
-	let disposable = vscode.commands.registerCommand('apigator.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World from apigator!');
-	});
-
-	disposable = vscode.commands.registerCommand('apigator.generateTest', () => {
-		vscode.window.showInformationMessage('Generate Test!');
+	let disposable = vscode.commands.registerCommand('apigator.generateTest', () => {
+		generateTest();
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateConsoleApplication', () => {
@@ -23,15 +19,15 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateAtCommandHandler', () => {
-		vscode.window.showInformationMessage('Generate AT Command Handler!');
+		generateAtCommandHandler();
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateStandardApi', () => {
-		vscode.window.showInformationMessage('Generate Standard API!');
+		generateStandardApi();
 	});
 
 	disposable = vscode.commands.registerCommand('apigator.generateRestApi', () => {
-		vscode.window.showInformationMessage('Generate REST API!');
+		generateRestApi();
 	});
 
 	context.subscriptions.push(disposable);
@@ -47,6 +43,10 @@ async function generateConsoleApplication() {
 													  "Arduino Console"]);
 
 	vscode.window.showInformationMessage('Selected ' + result);
+
+	let text = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document.getText() : "NO YAML FILE";
+	vscode.window.showInformationMessage('Hello World from apigator!' + text);
+
 }
 
 async function generateStandardApi() {
